@@ -12,10 +12,10 @@ const CreateTrip = () => {
     setTripNameErr("");
     console.log('process.env.REACT_APP_API_URL',process.env.REACT_APP_API_URL)
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}api/trips/add-trips`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}api/trips/add-trip`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ tripName: enteredTripName }),
+        body: JSON.stringify({ name: enteredTripName }),
       });
 
       if (!res.ok) throw new Error("Failed to post data");
