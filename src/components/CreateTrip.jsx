@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CreateTrip = () => {
+const CreateTrip = ({ onTripAdded }) => {
   const [enteredTripName, setEnteredTripName] = useState("");
   const [tripNameErr, setTripNameErr] = useState("");
 
@@ -10,7 +10,6 @@ const CreateTrip = () => {
       return;
     }
     setTripNameErr("");
-    console.log('process.env.REACT_APP_API_URL',process.env.REACT_APP_API_URL)
     try {
       const res = await fetch(`${process.env.REACT_APP_API_URL}api/trips/add-trip`, {
         method: "POST",
@@ -22,6 +21,9 @@ const CreateTrip = () => {
 
       await res.json();
       setEnteredTripName("");
+
+      // Refresh trips after successful add
+      if (onTripAdded) onTripAdded();
     } catch (err) {
       console.error(err);
     }
