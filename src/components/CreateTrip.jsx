@@ -10,9 +10,9 @@ const CreateTrip = () => {
       return;
     }
     setTripNameErr("");
-
+    console.log('process.env.REACT_APP_API_URL',process.env.REACT_APP_API_URL)
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/add-trips`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}api/trips/add-trips`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ tripName: enteredTripName }),
