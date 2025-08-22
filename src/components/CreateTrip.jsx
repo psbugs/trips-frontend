@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const CreateTrip = ({ onTripAdded }) => {
   const [enteredTripName, setEnteredTripName] = useState("");
@@ -20,11 +21,14 @@ const CreateTrip = ({ onTripAdded }) => {
       if (!res.ok) throw new Error("Failed to post data");
 
       await res.json();
+      toast.success("Trip added successfully 🚀");
+
       setEnteredTripName("");
 
       // Refresh trips after successful add
       if (onTripAdded) onTripAdded();
     } catch (err) {
+      toast.error("Unable to create trip ❌");
       console.error(err);
     }
   };
