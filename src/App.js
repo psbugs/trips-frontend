@@ -1,6 +1,6 @@
 import TripsPage from "./components/TripsPage";
 import "./index.css"
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
