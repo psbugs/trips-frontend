@@ -33,6 +33,10 @@ const CreateTrip = ({ onTripAdded }) => {
     }
   };
 
+  const handleTripInputChange = (e) => {
+    setTripNameErr("");
+    setEnteredTripName(e.target.value)
+  }
   return (
     <div className="create-trip">
       <div className="input-row">
@@ -40,7 +44,8 @@ const CreateTrip = ({ onTripAdded }) => {
           type="text"
           placeholder="Enter trip name"
           value={enteredTripName}
-          onChange={(e) => setEnteredTripName(e.target.value)}
+          style={tripNameErr ? { border: '1px solid red' } : {}}
+          onChange={handleTripInputChange}
         />
         <button onClick={addTripOnClick}>Add Trip</button>
       </div>

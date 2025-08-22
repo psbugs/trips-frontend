@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <div className="app">
-      <h1 className="app-title">Trip Web Application</h1>
+      <h1 className="app-title">Mini Trip Web App</h1>
       <TripsPage />
       <ToastContainer
         position="top-right"
